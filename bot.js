@@ -13,8 +13,6 @@ const { Routes } = require('discord-api-types/v9');
 client.commands = new Collection(); 
 client.alternatifler = new Collection();
 
-const commands = [];
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 ["command"].forEach(handler => {
   require(`./events/loader`)(client);
@@ -22,7 +20,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 client.on("ready", () => {
   require("./events/eventLoader")(client);
-});
+});e
 
  
 
