@@ -7,47 +7,11 @@ const fs = require("fs");
 const config = require("./config.json");
 const prefix = config.prefix;
 const db = require("quick.db")
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
 
-client.commands = new Collection(); 
-client.alternatifler = new Collection();
 
-const commands = [];
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
-["command"].forEach(handler => {
-  require(`./events/loader`)(client);
-}); 
-
-client.on('ready', () => {
-  console.log(`[ELENOR] -> The bot was entered
-[ELENOR] -> The logged-in bot: ${client.user.tag}
-[ELENOR] -> ${client.guilds.cache.size.toLocaleString()} Server - ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} User`);
- var oyun = [
-    
-    "Developer: ! Alonè#0411",
-    "?help & ?invite",
-    "Bot Version: beta v1.2.4"
-
-    //Version Config
-
-    //Bug Fix: + v0.0.2
-    //Add Command: + v0.0.4
-    //Add System: + v0.0.9
-
-  ]
+module.exports = async(message) => {
   
-  setInterval(function() {
-    var oyun1 = oyun[Math.floor(Math.random() * (oyun.length))]
-    client.user.setPresence({activities: [{name: oyun1}]});
-
-}, 2 * 10000);
-});
- 
-
-client.on("messageCreate", async message => {
-  const en = db.has(`en.lang.${message.guild.id}`)
+    const en = db.has(`en.lang.${message.guild.id}`)
         const tr = db.has(`tr.lang.${message.guild.id}`)
   
 
@@ -227,23 +191,5 @@ if(button.customId === "kabul") {
     }
   } 
     
-
-});
-
-
-
-client.on('guildCreate', async guild => {
-  db.set(`en.lang.${guild.id}`, true)
-  })
-
-
-
-
-client.login(config.token);
-
-
-
-
-
-
-
+  
+}
