@@ -20,9 +20,21 @@ client.alternatifler = new Collection();
 
 client.on("ready", () => {
   require("./events/eventLoader")(client);
-});e
-
- 
+});
+const express = require("express")
+ const app = express()
+const http = require("http")
+app.get("/", (request, response) => {
+  console.log(`Your bot has been successfully activated 24/7.`)
+  response.sendStatus(200);
+})
+app.listen(process.env.PORT)
+setInterval(() => {
+  http.get(`https://ballistic-inexpensive-polonium.glitch.me/`)
+}, 280000)
+const Log = message => {
+  console.log(`[ »» ] ${message}`)
+};
 
 
 
