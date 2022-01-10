@@ -51,6 +51,7 @@ module.exports = {
             .setDescription(`<:hammer:897863047991947324> ・ You have already requested to add a bot.To be requested to add boots again, the confirmation of its boot need to be used or redeemed.`)
             .setFooter(`Elenor - BotList System`)
             message.channel.send({embeds: [a]})
+               
       } else {
       
       const iderr = new Discord.MessageEmbed()
@@ -76,27 +77,32 @@ module.exports = {
       
             
             if(!log) return message.channel.send({embeds: [logerr]})
+         
             if(!kanal) return message.channel.send({embeds: [kanalerr]})
-            if(!botrole) return message.channel.send({embeds: [boterr]})
+         
+        if(!botrole) return message.channel.send({embeds: [boterr]})
+         
             if(!devrole) return message.channel.send({embeds: [deverr]})
+        
+        
             
             
             if (message.channel.id !== kanal) return message.channel.send({embeds: [kanalerr2]})
-             
+               
             if (message.channel.id == kanal) {
             if (!botid)  return message.channel.send({embeds: [iderr]})
-               
+                 
       
           if(isNaN(args[0])) return message.channel.send({embeds: [harferr]})
-               
+                
           
           
             if (!prefix) return message.channel.send({embeds: [prefixerr]})
-               
+                 
               if (!onaylımı) return message.channel.send({embeds: [dbl]})
-               
+                
               if (onaylımı !== "yes" && onaylımı !== "no") return message.channel.send({embeds: [yesno]})
-              setTimeout(() => message.delete(), Boolean, 10000);
+               
               
           
               const taken = new Discord.MessageEmbed()
@@ -144,7 +150,7 @@ module.exports = {
             client.channels.cache.get(log).send({embeds: [basvuruuu]})
             client.channels.cache.get(log).send({embeds: [embed], components: [row]})
             message.channel.send({embeds: [taken]})
-               
+                
         
       } else {
             const basvuruuu = new Discord.MessageEmbed()
@@ -179,7 +185,7 @@ module.exports = {
             client.channels.cache.get(log).send({embeds: [basvuruuu]})
             client.channels.cache.get(log).send({embeds: [embed], components: [row]})
             message.channel.send({embeds: [taken]})
-               
+                
       }
             }
             db.set(`botu.${message.author.id}.${message.guild.id}`, botid)
@@ -227,6 +233,7 @@ module.exports = {
             .setDescription(`<:hammer:897863047991947324> ・ Zaten bir bot ekleme isteğinde bulunmuşsun. Tekrar bot ekleme isteğinde bulunabilmen için botunun onaylanması yada rededilmesi gerek.`)
             .setFooter(`Elenor - BotList Sistem`)
             message.channel.send({embeds: [a]})
+              
       } else {
 
             const iderr = new Discord.MessageEmbed()
@@ -252,27 +259,31 @@ module.exports = {
       
             
             if(!log) return message.channel.send({embeds: [logerr]})
+         
             if(!kanal) return message.channel.send({embeds: [kanalerr]})
+         
             if(!botrole) return message.channel.send({embeds: [boterr]})
+         
             if(!devrole) return message.channel.send({embeds: [deverr]})
+         
             
             
             if (message.channel.id !== kanal) return message.channel.send({embeds: [kanalerr2]})
-             
+              
             if (message.channel.id == kanal) {
             if (!botid)  return message.channel.send({embeds: [iderr]})
-               
+                
       
           if(isNaN(args[0])) return message.channel.send({embeds: [harferr]})
-               
+                
           
           
             if (!prefix) return message.channel.send({embeds: [prefixerr]})
-               
+                
               if (!onaylımı) return message.channel.send({embeds: [dbl]})
-               
+                
               if (onaylımı !== "evet" && onaylımı !== "hayır") return message.channel.send({embeds: [yesno]})
-              setTimeout(() => message.delete(), Boolean, 10000);
+               
               
           
               const taken = new Discord.MessageEmbed()
@@ -320,7 +331,7 @@ module.exports = {
             client.channels.cache.get(log).send({embeds: [basvuruuu]})
             client.channels.cache.get(log).send({embeds: [embed], components: [row]})
             message.channel.send({embeds: [taken]})
-               
+                
         
       } else {
             const basvuruuu = new Discord.MessageEmbed()
@@ -355,7 +366,7 @@ module.exports = {
             client.channels.cache.get(log).send({embeds: [basvuruuu]})
             client.channels.cache.get(log).send({embeds: [embed], components: [row]})
             message.channel.send({embeds: [taken]})
-               
+                
       }
             }
             db.set(`botu.${message.author.id}.${message.guild.id}`, botid)
@@ -403,6 +414,7 @@ module.exports = {
             .setDescription(`<:hammer:897863047991947324> ・ You have already requested to add a bot.To be requested to add boots again, the confirmation of its boot need to be used or redeemed.`)
             .setFooter(`Elenor - BotList System`)
             message.channel.send({embeds: [a]})
+               
       } else {
       const iderr = new Discord.MessageEmbed()
             .setDescription(`<:hammer:897863047991947324> ・ You must enter the **ID** of the bot.`)
@@ -427,27 +439,31 @@ module.exports = {
       
             
             if(!log) return message.channel.send({embeds: [logerr]})
+         
             if(!kanal) return message.channel.send({embeds: [kanalerr]})
+         
             if(!botrole) return message.channel.send({embeds: [boterr]})
-            if(!devrole) return message.channel.send({embeds: [deverr]})
+         
+        if(!devrole) return message.channel.send({embeds: [deverr]})
+         
             
             
             if (message.channel.id !== kanal) return message.channel.send({embeds: [kanalerr2]})
-             
+              
             if (message.channel.id == kanal) {
             if (!botid)  return message.channel.send({embeds: [iderr]})
-               
+                
       
           if(isNaN(args[0])) return message.channel.send({embeds: [harferr]})
-               
+                
           
           
             if (!prefix) return message.channel.send({embeds: [prefixerr]})
-               
+                
               if (!onaylımı) return message.channel.send({embeds: [dbl]})
-               
+                
               if (onaylımı !== "yes" && onaylımı !== "no") return message.channel.send({embeds: [yesno]})
-              setTimeout(() => message.delete(), Boolean, 10000);
+               
               
           
               const taken = new Discord.MessageEmbed()
@@ -496,7 +512,7 @@ module.exports = {
             client.channels.cache.get(log).send({embeds: [basvuruuu]})
             client.channels.cache.get(log).send({embeds: [embed], components: [row]})
             message.channel.send({embeds: [taken]})
-               
+                
         
       } else {
             const basvuruuu = new Discord.MessageEmbed()
@@ -531,7 +547,7 @@ module.exports = {
             client.channels.cache.get(log).send({embeds: [basvuruuu]})
             client.channels.cache.get(log).send({embeds: [embed], components: [row]})
             message.channel.send({embeds: [taken]})
-               
+                
       }
             }
             db.set(`botu.${message.author.id}.${message.guild.id}`, botid)

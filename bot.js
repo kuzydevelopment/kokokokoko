@@ -43,7 +43,17 @@ client.on('guildCreate', async guild => {
   db.set(`en.lang.${guild.id}`, true)
   })
 
+const zm = require("ms")
+client.on("messageCreate", async message => {
+  let kanal = db.fetch(`addbot.${message.guild.id}`)
+  if(kanal) {
+    if(message.channel.id !== kanal) return;
+  setTimeout(() => {
+  message.delete()
+  }, zm("20s"))
+  }
 
+  })
 
 
 client.login(config.token);
