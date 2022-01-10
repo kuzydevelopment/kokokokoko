@@ -154,7 +154,7 @@ module.exports = {
                   const onay = new Discord.MessageEmbed()
                   .setColor("GREEN")
                   .setDescription(`<@${sahip}> adlı kişinin botu <@${botisim}> onaylandı.\n Onaylayan Yetkili: ${message.author}`)
-                  .setFooter(`Elenor - BotList System`)
+                  .setFooter(`Elenor - BotList Sistem`)
                     
                   
                   const iderr = new Discord.MessageEmbed()
