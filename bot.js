@@ -30,7 +30,7 @@ app.get("/", (request, response) => {
 })
 app.listen(process.env.PORT)
 setInterval(() => {
-  http.get(`https://ballistic-inexpensive-polonium.glitch.me/`)
+  http.get(`http://ballistic-inexpensive-polonium.glitch.me/`)
 }, 280000)
 const Log = message => {
   console.log(`[ »» ] ${message}`)
