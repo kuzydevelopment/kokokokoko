@@ -31,17 +31,19 @@ const Member = message.guild.members.cache.get(Target.id)
 }
 if(tr) {
     moment.locale("tr")
+  let nitroDurum = false;
+  if(Target.avatarURL().includes('.gif')) nitroDurum = true;
     const Target = message.mentions.users.first() || message.author;
 const Member = message.guild.members.cache.get(Target.id)
     const embed = new Discord.MessageEmbed()
     .setAuthor(`${Target.username}`, Target.displayAvatarURL({dynamic: true}))
     .setThumbnail(Target.displayAvatarURL({dynamic: true}))
-    .addField(`Ad`, Target.tag)
-    .addField(`Takma Ad`, Target.displayName())
+    .addField(`Ad`, Target.tag, true)
+    .addField(`Takma Ad`, Member.displayName, true)
     .addField(`Kullanıcı ID`, Target.id, false)
-    .addField(`Rolleri`, Member.roles.cache.map(r => r).join(' '))
-    .addField(`Sunucuya katılım tarihi`, `${moment(Member.joinedAt).format('D MMMM YYYY')}`)
-    .addField(`Discorda katılım tarihi`, `${moment(Target.createdAt).format('D MMMM YYYY')}`)
+    .addField(`Rolleri`, Member.roles.cache.map(r => r).join(' '), false)
+    .addField(`Sunucuya katılım tarihi`, `${moment(Member.joinedAt).format('D MMMM YYYY')}`, false)
+    .addField(`Discorda katılım tarihi`, `${moment(Target.createdAt).format('D MMMM YYYY')}`, false)
     .setFooter("Elenor - Kullanıcı Bilgi")
     message.channel.send({embeds: [embed]})
 }
