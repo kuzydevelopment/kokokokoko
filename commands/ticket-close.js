@@ -12,14 +12,16 @@ module.exports = {
 
 const ad = await db.fetch(`numara.${message.channel.id}`)
 if(!ad) {
-ad = '0' }
+let ad = '0' }
   
 if(message.channel.name === `ticket-${ad}` || message.channel.name === `closed-${ad}`) {
 const ann = await db.fetch(`asd.${message.guild.id}.${message.channel.id}.${message.author.id}`)
 if(!ann) return message.channel.send(`Bu bilet senin değil.`)
 message.delete()
-
-message.channel.send()
+const u = new Discord.MessageEmbed()
+.setColor('#ffff00')
+.setDescription(`Bilet ${message.author} tarafından kapatıldı.`)
+message.channel.send({embeds: [u]})
 message.channel.setName(`closed-${ad}`)
   const i = new Discord.MessageEmbed()
 .setColor('RED')
