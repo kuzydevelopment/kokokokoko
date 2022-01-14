@@ -1,5 +1,6 @@
 const {MessageEmbed} = require("discord.js");
 const  Discord = require("discord.js");
+const {MessageActionRow} = require("discord.js")
 const db = require("quick.db")
 module.exports = {
     
@@ -19,14 +20,25 @@ if(!kanalbelirle) return message.channel.send(`Mesajı göndereceğim kanalı ay
 .setFooter(`Narcos Code Ticket Bot Altyapısı - Ticketing without clutter.`, client.user.avatarURL())
 .setColor('GREEN')
 .setDescription(`📩 tepkisine tıklayıp bir bilet oluşturabilirsiniz.`)
-client.channels.cache.get(kanalbelirle).send({embeds: [a]}).then(async function(mesaj) {
+      const row = new MessageActionRow()
+    .addComponents(
+      
+ new Discord.MessageButton()
+.setCustomId("ticketaç")
+.setLabel('Ticket Aç')
+.setStyle('SECONDARY')
+
+
+    )
+
+client.channels.cache.get(kanalbelirle).send({embeds: [a], components: [row]}).then(async function(mesaj) {
 
           const filter = i => i.user.id === message.author.id;
             mesaj.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction) => {
 
-aç.on('collect', async reaction => {
-const author = reaction.users.last()
-reaction.remove(author.id)
+
+const author = button.member
+
 const sd = await db.fetch(`ass.${message.guild.id}.${author.id}`)
 
 db.add(`numara.${message.guild.id}`, 1)
@@ -120,7 +132,7 @@ db.delete(`asd.${message.guild.id}.${s.id}.${author.id}`)
   
 })
 
-})  
+
 
 })
 })
