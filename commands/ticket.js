@@ -34,10 +34,10 @@ if(!kanalbelirle) return message.channel.send(`Mesajı göndereceğim kanalı ay
 client.channels.cache.get(kanalbelirle).send({embeds: [a], components: [row]}).then(async function(mesaj) {
 
           const filter = i => i.user.id === message.author.id;
-            mesaj.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction) => {
+            mesaj.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction, member) => {
 
 
-const author = button.member
+const author = member
 
 const sd = await db.fetch(`ass.${message.guild.id}.${author.id}`)
 
@@ -48,11 +48,11 @@ db.add(`numara.${s.id}`, as)// Narcos Code
 db.set(`ass.${message.guild.id}.${author.id}`, s.id)
 db.set(`asd.${message.guild.id}.${s.id}.${author.id}`, 'ticketaçma')
 let role = message.guild.roles.cache.find(r => r.name === '@everyone')
-s.createOverwrite(role, { 'VIEW_CHANNEL': false });
+s.permissionOverwrites.create(role, { 'VIEW_CHANNEL': false });
 message.guild.members.cache.forEach(u => {
-if(u.hasPermission('MANAGE_GUILD')) {
-s.createOverwrite(u, { 'VIEW_CHANNEL':true, 'SEND_MESSAGES':true, 'MANAGE_MESSAGES':true, 'MANAGE_CHANNELS':true }); }})
-s.createOverwrite(author, { 'VIEW_CHANNEL':true, 'SEND_MESSAGES':true });
+if(u.permissions.has('MANAGE_GUILD')) {
+s.permissionOverwrites.create(u, { 'VIEW_CHANNEL':true, 'SEND_MESSAGES':true, 'MANAGE_MESSAGES':true, 'MANAGE_CHANNELS':true }); }})
+s.permissionOverwrites.create(author, { 'VIEW_CHANNEL':true, 'SEND_MESSAGES':true });
   const e = new Discord.MessageEmbed()
 .setColor('GREEN')
 .setDescription(`Çok yakın zaman da seninle ilgileneceğiz.
