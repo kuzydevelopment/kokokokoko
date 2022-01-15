@@ -34,11 +34,9 @@ if(!kanalbelirle) return message.channel.send(`Mesajı göndereceğim kanalı ay
 client.channels.cache.get(kanalbelirle).send({embeds: [a], components: [row]}).then(async function(mesaj) {
 
           const filter = i => i.user.id === message.author.id;
-            mesaj.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction, member) => {
+            mesaj.createMessageComponentCollector().on('collect', async (button, interaction, member) => {
 
-
-const author = member
-
+const author = button.member
 const sd = await db.fetch(`ass.${message.guild.id}.${author.id}`)
 
 db.add(`numara.${message.guild.id}`, 1)
@@ -58,31 +56,34 @@ s.permissionOverwrites.create(author, { 'VIEW_CHANNEL':true, 'SEND_MESSAGES':tru
 .setDescription(`Çok yakın zaman da seninle ilgileneceğiz.
 Bileti kapatmak istersen: 🔒`)
 .setFooter(`Narcos Code Ticket Bot Altyapısı - Ticketing without clutter`, client.user.avatarURL())
-s.send({content:`${author}, Hoşgeldin!`, embeds: [e]}).then(m => {
-m.react(`🔒`)
-let si = (reaction, user) => reaction.emoji.name === "🔒" && user.id !== client.user.id
-let s23 = m.createReactionCollector(si, { time: 0 });
+  
+        const row2 = new MessageActionRow()
+    .addComponents(
+      
+ new Discord.MessageButton()
+.setCustomId("tsil")
+.setLabel('Ticketi Sil')
+.setStyle('SECONDARY')
+      
+    )    
+        .addComponents(
+      
+ new Discord.MessageButton()
+.setCustomId("tgaç")
+.setLabel('Ticketi Geri Aç')
+.setStyle('SECONDARY')
+      
+    )
+s.send({content:`${author}, Hoşgeldin!`, embeds: [e], components: [row2]}).then(async function(mesaj) {
 
-s23.on('collect', async reaction => {
-const author = reaction.users.last()
-reaction.remove(author.id) 
-m.react(`✅`)
-m.react(`❌`)
-let sil = (reaction, user) => reaction.emoji.name === "✅" && user.id !== client.user.id
-let sill = m.createReactionCollector(sil, { time: 0 });
-let ss = (reaction, user) => reaction.emoji.name === "❌" && user.id !== client.user.id
-let s2 = m.createReactionCollector(ss, { time: 0 });
-s2.on('collect', async reaction => {
-s.messages.fetchs({limit:10}).then(async messages => { 
-  messages.get(m.id).reactions.get('✅').removeAll()
-reaction.removeAll()
-})})
-sill.on('collect', async reaction => {
-let us = reaction.users.last()
-reaction.remove(us.id)
+          const filter = i => i.user.id === message.author.id;
+            mesaj.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction, member) => {
+
+
+
   const ei = new Discord.MessageEmbed()
 .setColor('#ffff00')
-.setDescription(`Bilet ${us} tarafından kapatıldı.`)
+.setDescription(`Bilet ${author} tarafından kapatıldı.`)
 s.send({embeds: [ei]})
 s.setName(`closed-${as}`)
   const ae = new Discord.MessageEmbed()
@@ -135,8 +136,8 @@ db.delete(`asd.${message.guild.id}.${s.id}.${author.id}`)
 
 
 })
-})
-                                                                 
+
+                                                            
                                                                  
   }
   }
