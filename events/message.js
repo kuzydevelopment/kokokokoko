@@ -26,7 +26,7 @@ module.exports = async (message) => {
   if (!command) command = client.commands.get(client.alternatifler.get(cmd));
 
   if (command) {
-    if (en) {
+   /* if (en) {
       if (db.get(`user_${message.author.id}.şartlar`) != "kabul edilmiş") {
         const warningEmbed = new Discord.MessageEmbed().setColor("RED")
           .setDescription(`Hi ${message.author}
@@ -154,7 +154,7 @@ module.exports = async (message) => {
               });
           });
       }
-    }
+    } */
     try {
       command.çalıştır(
         client,
