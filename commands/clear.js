@@ -15,7 +15,7 @@ module.exports = {
       if(en) {
         const p = new Discord.MessageEmbed()
             .setDescription(`<:hammer:897863047991947324> ・ In order to be able to use this command Manage Messages do not have the authority.`)
-            .setFooter(`Elenor - Güvenlik Sistem`)
+            .setFooter(`Elenor - Clear`)
         
           if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send({embeds: [p]})
         
