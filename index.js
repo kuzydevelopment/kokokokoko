@@ -102,3 +102,14 @@ var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 
 client.login(process.env.token)
 
+const express = require("express")
+ const app = express()
+const http = require("http")
+app.get("/", (request, response) => {
+  console.log(`[🩸 - Uptime] » Uptime başarıyla yapıldı.`)
+  response.sendStatus(200);
+})
+app.listen(process.env.PORT)
+setInterval(() => {
+  http.get(`http://ballistic-inexpensive-polonium.glitch.me/`)
+}, 280000)
