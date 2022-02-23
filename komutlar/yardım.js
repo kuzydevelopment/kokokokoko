@@ -53,7 +53,7 @@ module.exports = {
     interaction.reply({embeds: [help], components: [row]}).then(async function(mesaj) {
     
       const filter = i => i.user.id === interaction.user.id;
-      mesaj.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction) => {
+      interaction.channel.createMessageComponentCollector({ filter, time: 15000 }).on('collect', async (button, interaction) => {
      if(button.customId === "helpb") {
     
       const help = new MessageEmbed()
@@ -67,7 +67,7 @@ module.exports = {
   <:bot:897863178787102770> ・ Bot Menüsü
   <:wumpuslovebot:936189630536093746> ・ Oyun Menüsü**
     `)
-      .setFooter({ text: `[ ${interaction.user.tag} ] tarafından istendi`})
+      .setFooter({ text: `[ ${button.user.tag} ] tarafından istendi`})
 .setTimestamp()
     button.update({embeds: [help]})
     }
@@ -76,7 +76,7 @@ module.exports = {
         .setTitle(`・ Kullanıcı Menüsü`)
         .setDescription(`<:members:897863115121786900> ・ \`/avatar\` -> Avatarını gösterir
         <:members:897863115121786900> ・ \`/sunucu-bilgi\` -> Sunucu bilgisini gösterir`)
-        .setFooter({ text: `[ ${interaction.user.tag} ] tarafından istendi`})
+        .setFooter({ text: `[ ${button.user.tag} ] tarafından istendi`})
 .setTimestamp()
           button.update({embeds: [user]})
           
@@ -88,7 +88,7 @@ module.exports = {
         .setDescription(`<:bot:897863178787102770> ・ \`/ping\` -> Botun pingini gösterir
         <:bot:897863178787102770> ・ \`/istatistik\` -> Botun istatistiğini gösterir
         <:bot:897863178787102770> ・ \`/davet\` -> Botu davet edersiniz`)
-        .setFooter({ text: `[ ${interaction.user.tag} ] tarafından istendi`})
+        .setFooter({ text: `[ ${button.user.tag} ] tarafından istendi`})
 .setTimestamp()
           button.update({embeds: [bot]})
           
@@ -99,7 +99,7 @@ module.exports = {
         .setDescription(`<:wumpuslovebot:936189630536093746> ・ \`/oyunlar\` -> Oyunları gösterir
         <:wumpuslovebot:936189630536093746> ・ \`/oyun\` -> Oyun açarsınız
 `)
-        .setFooter({ text: `[ ${interaction.user.tag} ] tarafından istendi`})
+        .setFooter({ text: `[ ${button.user.tag} ] tarafından istendi`})
         .setTimestamp()
           button.update({embeds: [bot]})
           

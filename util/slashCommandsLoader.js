@@ -28,12 +28,12 @@ client.application.commands.set(allFiles)
     console.log(`[💧 - Gölge] » Giriş yapılan bot ismi: ${client.user.tag}`)
     console.log(` `)
     const vCodes = require('vcodes.js');
-//const dbl = new vCodes("jsHSKFcoGztSOMoEMlDVHpKtgANmBMaBRegRRkJwjRoajwKvehZdBmQEccTyQtORoCezlgeyHAHafslJzjqtpDZYwDbhUAXTbEFDcsOmpsRUNzYNUrPOLEOQrPQtPXOL")
+const dbl = new vCodes("jsHSKFcoGztSOMoEMlDVHpKtgANmBMaBRegRRkJwjRoajwKvehZdBmQEccTyQtORoCezlgeyHAHafslJzjqtpDZYwDbhUAXTbEFDcsOmpsRUNzYNUrPOLEOQrPQtPXOL")
 
 
-//dbl.on("ready", (bot) => {
- //   console.log(`[🔎 - vCodes] » ${bot.username} adlı bot vCodes.xyz'de başarıyla bulundu.`)
-//})
+dbl.on("ready", (bot) => {
+    console.log(`[🔎 - vCodes] » ${bot.username} adlı bot vCodes.xyz'de başarıyla bulundu.`)
+})
     client.user.setPresence({ activities: [{ name: '☕ /davet - Çok Yakında Sizlerle', type: 'PLAYING' }] });
 }) 
   client.on("interactionCreate", async (interaction) => {

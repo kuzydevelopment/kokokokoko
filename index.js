@@ -21,9 +21,9 @@ require('dotenv').config()
 
 //vCodes
 const vCodes = require('vcodes.js');
-//const dbl = new vCodes("jsHSKFcoGztSOMoEMlDVHpKtgANmBMaBRegRRkJwjRoajwKvehZdBmQEccTyQtORoCezlgeyHAHafslJzjqtpDZYwDbhUAXTbEFDcsOmpsRUNzYNUrPOLEOQrPQtPXOL")
+const dbl = new vCodes("jsHSKFcoGztSOMoEMlDVHpKtgANmBMaBRegRRkJwjRoajwKvehZdBmQEccTyQtORoCezlgeyHAHafslJzjqtpDZYwDbhUAXTbEFDcsOmpsRUNzYNUrPOLEOQrPQtPXOL")
 
-/*client.on("ready", () => {
+client.on("ready", () => {
     let guildCount = client.guilds.cache.size;
     dbl.stats(guildCount, () => console.log("[🔎 - vCodes] » vCodes.xyz'de istatistik güncellendi."));
 })
@@ -37,7 +37,7 @@ const vCodes = require('vcodes.js');
         client.channels.cache.get("916997242668339240").send({embeds: [embed]})
     })
 
-*/
+
 
 
 /*client.on('guildDelete', guild => {
