@@ -44,7 +44,7 @@ const embed = new Discord.MessageEmbed()
 .setFooter({ text: `[ ${interaction.user.tag} ] tarafından istendi`})
 .setTimestamp()
 .setColor("GREEN")
-if(!interaction.member.voice.channel) {await interaction.reply({embeds: [hata]})  } 
+if(!interaction.member.voice.channel) {await interaction.reply({embeds: [hata]})  } else {
 
 const tür = interaction.options.get("oyun").value
 const row = new MessageActionRow()
@@ -60,6 +60,6 @@ client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, t
 
 await interaction.reply({embeds: [embed], components: [row]})
 });
-
+}
 }
 } 
