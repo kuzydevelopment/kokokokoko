@@ -10,7 +10,8 @@ const db = require("quick.db")
 require("./util/slashCommandsLoader.js")(client) 
 const { DiscordTogether } = require('discord-together');
 client.discordTogether = new DiscordTogether(client);
-
+require("./util/levelsUpdater.js")(client);
+require("./database/connect.js");
 const ayarla = require('./ayarlar.json');
 
 const fs = require("fs")
