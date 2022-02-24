@@ -31,6 +31,7 @@ run: async (client, interaction) => {
 const rank = new canvacord.Rank()
     .setAvatar(`https://cdn.discordapp.com/avatars/${interaction.guild.members.cache.get(member).user.id}/${interaction.guild.members.cache.get(member).user.avatar}.png?size=2048`)
     .setCurrentXP(x.xp)
+.setRank(1, "RANK", false)
     .setLevel(x.level)
     .setRequiredXP(x.gerekli)
     .setStatus("dnd")
