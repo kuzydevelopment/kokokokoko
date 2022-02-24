@@ -5,7 +5,7 @@ module.exports = async (client) => {
   client.on("messageCreate", async message => {
     if (message.author.bot || !message.guild) return;
     const { channel, levelSystem } = await guildss.findOne({ guildID: message.guild.id }) || { channel: null, levelSystem: null };
-  //  if (!levelSystem) return;
+  if (!levelSystem) return;
     const { xp, gerekli, level } = await levels.findOne({ guildID: message.guild.id, userID: message.author.id }) || { xp: 0, gerekli: 100, level: 0 };
     await levels.updateOne({ guildID: message.guild.id, userID: message.author.id }, {$inc: { xp: xpRandom(message.content.length) } }, { upsert: true });
     const xpp = xp + xpRandom(message.content.length);
@@ -38,5 +38,5 @@ const onUpdateLevel = async (guildMember, guild, level) => {
 }
 
 const xpRandom = (length) => {
-  return Number(Math.floor(Number(length) * 5 / 3));
+  return Number(Math.floor(Number(length) * 1 / 3));
 }
