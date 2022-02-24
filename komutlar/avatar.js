@@ -8,12 +8,12 @@ module.exports = {
   description: 'Avatarınızı gösterir',
   options: [
     {
-        name:"user",
-        description:"Kullanıcı Seçin",
+        name:"kullanıcı",
+        description:"Kullanıcı seçin",
         type:6,
     },
     {
-        name:"type",
+        name:"tür",
         type:3,
         description:"Resmin türü ne olucak?",
         choices:[
@@ -22,7 +22,7 @@ module.exports = {
         ]
     },
     {
-        name:"size",
+        name:"boyut",
         type:3,
         description:"Resmin büyüklüğü nasıl olucak?",
         choices:[
@@ -33,10 +33,10 @@ module.exports = {
     
 ],
 run: async (client, interaction) => {
-    const veri = interaction.options.getMember('user') ? interaction.options.getMember('user').user.id : interaction.member.user.id;
+    const veri = interaction.options.getMember('kullanıcı') ? interaction.options.getMember('kullanıcı').user.id : interaction.member.user.id;
    const id = interaction.guild.members.cache.has(veri) ? interaction.guild.members.cache.get(veri).id : interaction.member.user.id
-    const tür = interaction.options.get("type") ? interaction.options.get("type").value : "png"
-    const oran = interaction.options.get("size") ? interaction.options.get("size").value : "1024"
+    const tür = interaction.options.get("tür") ? interaction.options.get("tür").value : "png"
+    const oran = interaction.options.get("boyut") ? interaction.options.get("boyut").value : "1024"
     const url = `https://cdn.discordapp.com/avatars/${id}/${interaction.guild.members.cache.get(veri).user.avatar}.${tür}?size=${oran}`;
     try{
    
