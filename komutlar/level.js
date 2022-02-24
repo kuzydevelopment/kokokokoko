@@ -22,7 +22,7 @@ run: async (client, interaction) => {
   const { levelSystem } = await guildss.findOne({ guildID: interaction.guild.id }) || { levelSystem: null };
   //  if (!levelSystem) return interaction.reply({ content: "Seviye sistemi aktif değil açmak için: `/level-sistem`" })
   
-  const x = await levels.findOne({ guildID: interaction.guild.id, userID: interaction.user.id }) 
+  const x = await levels.findOne({ guildID: interaction.guild.id, userID: interaction.guild.members.cache.get(member).user.id }) 
   
   
   if (x) {
