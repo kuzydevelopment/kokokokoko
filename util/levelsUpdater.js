@@ -18,13 +18,13 @@ module.exports = async (client) => {
       } else {
       message.channel.send({content:`${message.author} tebrikler! **${level + 1}.** levele ulaştın.`});
       };
-      onUpdateLevel(message.member, message.guild, level + 1);
+     // onUpdateLevel(message.member, message.guild, level + 1);
     }
   })
   
 }
 
-const onUpdateLevel = async (guildMember, guild, level) => {
+/*const onUpdateLevel = async (guildMember, guild, level) => {
     const guilds = await guildss.findOne({ guildID: guild.id }) || { roles: [] };
     if(guilds.roles.length <= 0) return;
     const rolesRemove = guilds.roles.filter(data => data.level > level && guildMember.roles.cache.has(data.roleID) && guild.roles.cache.get(data.roleID));
@@ -36,7 +36,8 @@ const onUpdateLevel = async (guildMember, guild, level) => {
         guildMember.roles.add(role.roleID);
     });
 }
+*/
 
 const xpRandom = (length) => {
-  return Number(Math.floor(Number(length) * 1 / 3));
+  return Number(Math.floor(Number(length) / 8));
 }

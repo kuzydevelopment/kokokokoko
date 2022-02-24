@@ -47,7 +47,7 @@ rank.build()
     });
   return;
   } else {
-    if(!member) {
+    if(!interaction.options.getMember('kullanıcı')) {
      interaction.reply({content:`Bir levele sahip değilsin.`});
     } else {
       interaction.reply({content:`Bir levele sahip değil.`});
