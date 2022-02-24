@@ -1,4 +1,5 @@
 const db = require("mongoose")
+require('dotenv').config()
 const ayarlar = require("../ayarlar.json")
 db.connect(process.env.mongodb).then(() => {
     console.log(" ");
